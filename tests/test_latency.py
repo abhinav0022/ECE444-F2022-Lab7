@@ -29,6 +29,6 @@ def latency_test(calls: int = 100, news: str) -> float:
     return avg_func(prediction), avg_func(time)
 
 latency_test(news="Emperor of Mars has declared war on Earth.") # fake
-latency_test(news="Messi leads argentina for the round of super 16") # expect: 0 (real)
-latency_test(news="eBron James is best ever to touch a basketball!") # expect: 1 (fake)
-latency_test(news="Elon Musk bought Google with 1$") # expect: 1 (fake
+latency_test(news="Messi leads argentina for the round of super 16") # real
+latency_test(news="LeBron James is best ever to touch a basketball!") # real
+latency_test(news="Elon Musk is the president of the US$") # fake
