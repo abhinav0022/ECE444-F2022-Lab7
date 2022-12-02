@@ -52,7 +52,7 @@ class FakeNewsDetector(Resource):
 
             prediction_res = {}
             for key in json_data:
-                if not loaded_model.predict(vectorizer.transform([json_data[key]]))[0] == 'FAKE':
+                if not loaded_model.predict(vectorizer.transform([json_data[key]]))[0] == 'REAL':
                     prediction_res[key] = 0
                 else:
                     prediction_res[key] = 1
@@ -66,7 +66,8 @@ class FakeNewsDetector(Resource):
             response = jsonify({'Error 400': 'NO Request'})
             response.status_code = 400
             return response
-            
+
+#The application will also work with /predict           
 @application.route('/predict', methods=['GET'])
 def predict():
     """ Predict whether the payload data is a fake news (1) or not (0)"""
